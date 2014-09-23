@@ -29,6 +29,15 @@ public class StudentRecord {
     }
 
     public void setName(String name) {
-        this.name = name;
+        try {
+            if (name.length() > 4) {
+                this.name = name;
+            } else {
+                throw new NameTooShortException();
+            }
+        }
+        catch (NameTooShortException e) {
+            System.out.println(e);
+        }
     }
 }
